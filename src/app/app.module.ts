@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CompHeaderComponent } from './comp-header/comp-header.component';
+import { UsuarioDetailComponent } from './usuarios/usuario-detail/usuario-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CompHeaderComponent
+    CompHeaderComponent,
+    UsuarioDetailComponent
   ],
   imports: [
     BrowserModule
