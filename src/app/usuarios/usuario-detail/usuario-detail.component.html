@@ -1,6 +1,16 @@
-<p> {{ usuario.Id }}</p>
-<p> {{ usuario.Name }}</p>
-<p> {{ usuario.UserName }}</p>
-<p> {{ usuario.Email }}</p>
-<p> {{ usuario.Password }}</p>
-<p> {{ usuario.ImagePath }}</p>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{ usuario.ImagePath }}" alt="Card image cap">
+    <div class="card-body">
+         {{ usuario.Id }}
+        <br>
+         {{ usuario.Name }}
+         <br>
+        {{ usuario.UserName }}
+        <br>
+        {{ usuario.Email }}
+        <br>
+        {{ usuario.Password }}
+            
+    </div>
+  </div>
+

@@ -14,7 +14,7 @@ export class UsuarioDetailComponent implements OnInit {
     '@angel',
     'angel@mail.com',
     '123',
-    'image'
+    'https://avatars3.githubusercontent.com/u/23128076?s=400&v=4'
   );
 
   constructor() { }
