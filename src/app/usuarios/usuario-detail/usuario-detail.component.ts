@@ -22,4 +22,8 @@ export class UsuarioDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  getUser() {
+    return this.usuario;
+  } 
+
 }
