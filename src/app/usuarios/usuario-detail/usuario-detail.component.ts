@@ -16,9 +16,7 @@ export class UsuarioDetailComponent implements OnInit {
   constructor(  ) { }
 
   ngOnInit() {
-    this.usuario =this.usuarioService.getUser();
+    this.usuario =this.usuarioService.getUser(1);
   }
-
-  
 
 }
