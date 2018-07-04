@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Usuario } from '../usuario.model';
+import { UsuarioService } from '../usuarios.service';
 
 @Component({
   selector: 'app-usuario-detail',
@@ -8,22 +10,15 @@ import { Usuario } from '../usuario.model';
 })
 export class UsuarioDetailComponent implements OnInit {
 
-  usuario: Usuario = new Usuario(
-    0,
-    'Angel',
-    '@angel',
-    'angel@mail.com',
-    '123',
-    'https://avatars3.githubusercontent.com/u/23128076?s=400&v=4'
-  );
+  usuario: Usuario;
+  usuarioService: UsuarioService = new UsuarioService();
 
-  constructor() { }
+  constructor(  ) { }
 
   ngOnInit() {
+    this.usuario =this.usuarioService.getUser();
   }
 
-  getUser() {
-    return this.usuario;
-  } 
+  
 
 }
