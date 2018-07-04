@@ -9,7 +9,6 @@ import { CompLogInComponent } from './comp-log-in/comp-log-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TweetsComponent } from './tweets/tweets.component';
 import { TweetsListComponent } from './tweets/tweets-list/tweets-list.component';
-import { TweetItemComponent } from './tweets/tweets-list/tweet-item/tweet-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { TweetItemComponent } from './tweets/tweets-list/tweet-item/tweet-item.c
     CompLogInComponent,
     TweetsComponent,
     TweetsListComponent,
-    TweetItemComponent
   ],
   imports: [
     BrowserModule,
