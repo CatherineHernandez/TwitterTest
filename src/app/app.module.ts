@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TweetsComponent } from './tweets/tweets.component';
 import { TweetsListComponent } from './tweets/tweets-list/tweets-list.component';
 import { TweetDetailComponent } from './tweets/tweet-detail/tweet-detail.component';
+import { NewTweetComponent } from './tweets/new-tweet/new-tweet.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TweetDetailComponent } from './tweets/tweet-detail/tweet-detail.compone
     CompLogInComponent,
     TweetsComponent,
     TweetsListComponent,
-    TweetDetailComponent
+    TweetDetailComponent,
+    NewTweetComponent
   ],
   imports: [
     BrowserModule,
