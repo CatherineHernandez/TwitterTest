@@ -23,7 +23,7 @@ export class UsuarioService{
 
      //Para regresar la lista de todos los usuarios
      getUsers() {
-        return this.usuarios
+        return this.usuarios;
      }
 
      //Para regresar un usuario en particular 

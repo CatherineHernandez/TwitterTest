@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TweetService } from '../tweets.service';
+import { Tweet } from '../tweet.module';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { TweetService } from '../tweets.service';
 })
 export class TweetsListComponent implements OnInit {
 
-  @Input() tweetService: TweetService;
+  @Input() tweets: Tweet[];
 
   constructor() { }
 

@@ -1,3 +1,16 @@
-<p>
-  tweets-list works!
-</p>
+<a *ngFor="let tweet of tweets"
+class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{tweet.Autor}}</h4>
+    <p class="list-group-item-text">{{tweet.Text}}</p>
+  </div>
+  <span *ngFor="let image of tweet.imagesPath | slice:0:4" class="pull-right">
+    <img
+    src="{{ image }}"
+    alt=""
+    class="img-responsive"
+    style="max-height: 100px;">
+    <td>&nbsp;</td>
+  </span>
+
+</a>
