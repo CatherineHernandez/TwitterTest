@@ -11,13 +11,23 @@ export class TweetsComponent implements OnInit {
 
   tweetService: TweetService = new TweetService();
   tweets: Tweet[]; 
+  receiveTweet: Tweet;
+
 
   constructor() { }
 
   ngOnInit() {
 
     this.tweets = this.tweetService.getTweets();
-
   }
+
+  ReceiveTweet($event) {
+    
+    this.receiveTweet = $event;
+  }
+
+
+
+
 
 }

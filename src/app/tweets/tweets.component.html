@@ -1,2 +1,12 @@
 
-<app-tweets-list [tweets]=tweets></app-tweets-list>
+<app-tweets-list 
+    [tweets]=tweets
+    (SelectedTweet) = "ReceiveTweet($event)"
+    data-toggle="modal"
+  data-target="#exampleModal">
+</app-tweets-list>
+<div 
+class="modal fade" id="exampleModal" tabindex="-1" role="" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <app-tweet-detail [tweetReceiveParent]="receiveTweet" *ngIf = "receiveTweet"></app-tweet-detail>
+</div>
+

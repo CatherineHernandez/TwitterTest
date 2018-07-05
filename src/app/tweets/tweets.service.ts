@@ -5,7 +5,7 @@ export class TweetService {
   tweets: Tweet[] = [
 
     new Tweet(
-      'Tweet de prueba',
+      'Tweet de prueba Tweet de pruebaTweet de pruebaTweet de pruebaTweet de pruebaTweet de pruebaTweet de pruebaTweet de prueb',
       'Hoy',
       '@iusuario1',
       [
@@ -33,8 +33,6 @@ export class TweetService {
         'http://img.ohmirevista.com/article/480/bostezo/ardilla-bostezando_24c0fa8d8e85aa00b4cc275638f0f158000e6779.jpg'
       ]
     ),
-
-
   ];
 
   getTweets() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
 import { Tweet } from '../tweet.module';
 
 
@@ -7,13 +7,16 @@ import { Tweet } from '../tweet.module';
   templateUrl: './tweets-list.component.html',
   styleUrls: ['./tweets-list.component.css']
 })
-export class TweetsListComponent implements OnInit {
+export class TweetsListComponent{
 
   @Input() tweets: Tweet[];
+  @Output() SelectedTweet = new EventEmitter<Tweet>();
 
   constructor() { }
 
-  ngOnInit() {
+  onSelectedTweet(tweet: Tweet){
+    this.SelectedTweet.emit(tweet);
   }
+
 
 }
