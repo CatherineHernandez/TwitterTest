@@ -11,6 +11,7 @@ import { TweetsComponent } from './tweets/tweets.component';
 import { TweetsListComponent } from './tweets/tweets-list/tweets-list.component';
 import { TweetDetailComponent } from './tweets/tweet-detail/tweet-detail.component';
 import { NewTweetComponent } from './tweets/new-tweet/new-tweet.component';
+import { GruposComponent } from './grupos/grupos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NewTweetComponent } from './tweets/new-tweet/new-tweet.component';
     TweetsComponent,
     TweetsListComponent,
     TweetDetailComponent,
-    NewTweetComponent
+    NewTweetComponent,
+    GruposComponent
   ],
   imports: [
     BrowserModule,

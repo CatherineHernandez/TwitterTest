@@ -1,3 +1,29 @@
-<p>
-  It Works!
-</p>
+<div class="container">
+    <h2>New Tweet</h2>
+    <form [formGroup]="NewTweetForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="Text">Text:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="newTweet.text" ngMaxLength="120"  formControlName="Text" placeholder="Enter Tweet">
+        </div>
+      </div>
+      
+      <div class="form-group">
+          <label for="Images">Image:</label>
+          <div class="col-sm-6">
+            <input type="url" class="form-control" formControlName="Images" placeholder="Enter url">
+          </div>
+        </div>
+       
+            <div *ngIf="textValid" class="alert alert-warning" role="alert">
+                <strong>Warning!</strong> El Texto no puede ser mayor a 120.
+              </div>
+       
+        <div class="form-group">
+            <button class="btn btn-primary" ><b>New Image</b></button>
+          </div>
+      <div class="form-group">
+        <button [disabled]="!NewTweetForm.valid" class="btn btn-primary" routerLink="/UserDetail"><b>New Tweet</b></button>
+      </div>
+    </form>
+</div>

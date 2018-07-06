@@ -27,5 +27,4 @@ export class CompLogInComponent implements OnInit {
   onSubmit(){
     this.isValid = this.loginForm.valid;
   }
-
 }
