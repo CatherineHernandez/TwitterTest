@@ -1,6 +1,8 @@
 import { Tweet } from './tweet.module';
 import { UsuarioService } from '../usuarios/usuarios.service';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class TweetService {
@@ -38,8 +40,13 @@ export class TweetService {
     ),
   ];
 
-  getTweets() {
-    return this.tweets;
+  getTweets(): Observable<Tweet[]> {
+    return new Observable(observable => {
+      
+        observable.next(this.tweets);
+        observable.complete();
+  
+    });
   }
 
   getTweet(index: number) {
@@ -48,5 +55,6 @@ export class TweetService {
 
   addTweet(tweet: Tweet){
     this.tweets.push(tweet);
+    console.log(this.tweets);
   }
 }

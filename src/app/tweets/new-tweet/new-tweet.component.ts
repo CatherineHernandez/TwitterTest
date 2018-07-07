@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tweet } from '../tweet.module';
 import { TweetService } from '../tweets.service';
 import { FormBuilder, FormGroup, Validators,FormControlName,FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-tweet',
@@ -10,56 +11,57 @@ import { FormBuilder, FormGroup, Validators,FormControlName,FormControl} from '@
 })
 export class NewTweetComponent implements OnInit {
   NewTweetForm: FormGroup;
-  isValid: boolean;
-  newTweet = {
-    text: '',
-    image: ''
+  isValid: boolean = true;
+  
+   
+  tweet:Tweet = new Tweet(
+    '',
+    '',
+    '',
+    []
+  );
+  
+
+  //investigar
+  trackByIndex(index: number, obj: any): any {
+    return index;
   }
 
   Fecha: Date;
    
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private tweetService: TweetService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.NewTweetForm = this.formBuilder.group({
-    Text: [this.newTweet.text, [Validators.required, Validators.maxLength(120)]],
-    Images: ['', [Validators.required]]
-    })
-
-    this.NewTweetForm = new FormGroup({
-      'Text': new FormControl(this.newTweet.text, [
-        Validators.required,
-        Validators.maxLength(120)
-      ]),
-      'Images': new FormControl(this.newTweet.image, [
-        Validators.required,
-       // Validators.pattern('^(http[s]?:\\/\\/){0,1}(www\\.){0,1}[a-zA-Z0-9\\.\\-]+\\.[a-zA-Z]{2,5}[\\.]{0,1}$/*')
-      ]),
-      
-    });
-
-    this.Fecha.toLocaleString();
-
   }
 
-  onSubmit(){
-    this.isValid = this.NewTweetForm.valid;
+  addNewImage(){
+    this.tweet.imagesPath.push('');
+  }
+
+  addNewTweet(){
     this.Fecha = new Date();
-/*
-    addTweet( new Tweet(
-      this.NewTweetForm.value.Text,
-      this.Fecha.toLocaleString(),
-      '@usuarionuevo',
-      this.NewTweetForm.value.Images  
-    )
-    
+    this.tweet.Date = this.Fecha.toLocaleString();
+    this.tweet.Autor = '@Autor';
+    this.tweetService.addTweet( 
+      this.tweet
   );
-*/
+
+  this.router.navigate(['/UserDetail']);
+
   }
 
-  get textValid() { return this.NewTweetForm.get('Text').hasError('maxlength'); }
+  onTextChange(text){
+    if(text.length>120){
+      this.isValid = false
+    }else{
+      this.isValid = true
+    }
+  }
+  get textValid() { return this.isValid }
 
 }

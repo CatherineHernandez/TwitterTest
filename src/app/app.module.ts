@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { CompHeaderComponent } from './comp-header/comp-header.component';
 import { UsuarioDetailComponent } from './usuarios/usuario-detail/usuario-detail.component';
 import { CompLogInComponent } from './comp-log-in/comp-log-in.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TweetsComponent } from './tweets/tweets.component';
 import { TweetsListComponent } from './tweets/tweets-list/tweets-list.component';
 import { TweetDetailComponent } from './tweets/tweet-detail/tweet-detail.component';
 import { NewTweetComponent } from './tweets/new-tweet/new-tweet.component';
 import { GruposComponent } from './grupos/grupos.component';
+import { TweetService } from './tweets/tweets.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,12 @@ import { GruposComponent } from './grupos/grupos.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    TweetService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

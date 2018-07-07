@@ -9,16 +9,15 @@ import { Tweet } from './tweet.module';
 })
 export class TweetsComponent implements OnInit {
 
-  tweetService: TweetService = new TweetService();
   tweets: Tweet[]; 
   receiveTweet: Tweet;
 
 
-  constructor() { }
+  constructor(private tweetService: TweetService) { }
 
   ngOnInit() {
-
-    this.tweets = this.tweetService.getTweets();
+    this.tweetService.getTweets().subscribe((tweetsData) => this.tweets = tweetsData);
+    //this.tweets = this.tweetService.getTweets();
   }
 
   ReceiveTweet($event) {
