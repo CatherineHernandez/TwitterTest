@@ -10,8 +10,7 @@
            placeholder="Enter Tweet">
         </div>
        
-      </div>
-      
+      </div>  
       <div class="form-group" *ngIf="tweet.imagesPath.length > 0">
           <label for="Images">Image:</label>
           <div class="col-sm-6" *ngFor="let image of tweet.imagesPath; let i = index; trackBy:trackByIndex;">

@@ -1,5 +1,8 @@
 import { Usuario } from './usuario.model';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
+@Injectable()
 export class UsuarioService{
     usuarios: Usuario[] =  [
       new Usuario (
@@ -22,8 +25,11 @@ export class UsuarioService{
      ];
 
      //Para regresar la lista de todos los usuarios
-     getUsers() {
-        return this.usuarios;
+     getUsers(): Observable<Usuario[]> {
+        return new Observable(observable => {
+          observable.next(this.usuarios);
+          observable.complete();
+        });
      }
 
      //Para regresar un usuario en particular 

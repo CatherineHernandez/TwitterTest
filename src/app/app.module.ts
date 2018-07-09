@@ -13,6 +13,12 @@ import { TweetDetailComponent } from './tweets/tweet-detail/tweet-detail.compone
 import { NewTweetComponent } from './tweets/new-tweet/new-tweet.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { TweetService } from './tweets/tweets.service';
+import { UsuarioComponent } from './usuarios/usuarios.component';
+import { UsuarioService } from './usuarios/usuarios.service';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { GrupoService } from './grupos/grupos.service';
+import { NewGrupoComponent } from './grupos/new-grupo/new-grupo.component';
+import { ListGroupComponent } from './grupos/list-group/list-group.component';
 
 @NgModule({
   declarations: [
@@ -24,16 +30,22 @@ import { TweetService } from './tweets/tweets.service';
     TweetsListComponent,
     TweetDetailComponent,
     NewTweetComponent,
-    GruposComponent
+    GruposComponent,
+    UsuarioComponent,
+    NewGrupoComponent,
+    ListGroupComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [
-    TweetService
+    TweetService,
+    UsuarioService,
+    GrupoService
   ],
   bootstrap: [AppComponent]
 })

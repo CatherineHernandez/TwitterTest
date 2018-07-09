@@ -1,4 +1,3 @@
-import {  Usuario } from '../usuarios/usuario.model';
 
 export class Tweet {
   public Text: string;
