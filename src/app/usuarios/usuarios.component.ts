@@ -10,10 +10,13 @@ import { Usuario } from './usuario.model';
 })
 export class UsuarioComponent implements OnInit {
   usuarios: Usuario[];
+  idUsuariosPop: Usuario[] = []; 
 
   @Output() SelectedUsuario = new EventEmitter<Usuario>();
 
   onSelectedUsuario(usuario: Usuario){
+
+    this.idUsuariosPop.push(usuario);
     this.SelectedUsuario.emit(usuario);
   }
 
@@ -21,10 +24,7 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioService.getUsers().subscribe((usuariosData) => this.usuarios = usuariosData);
-    console.log(this.usuarios);
     
   }
-
-  
 
 }

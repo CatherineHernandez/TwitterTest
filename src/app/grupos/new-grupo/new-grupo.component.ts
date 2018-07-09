@@ -31,7 +31,9 @@ export class NewGrupoComponent implements OnInit {
   }
 
   ReceiveUsuario( usuario: Usuario) { 
-    this.grupo.Usuarios.push(usuario);
+    if (this.grupo.Usuarios.includes(usuario) == false ) {
+      this.grupo.Usuarios.push(usuario);
+    }
   }
 
 }
