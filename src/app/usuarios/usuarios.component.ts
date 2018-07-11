@@ -30,9 +30,7 @@ export class UsuarioComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges){
     
-    this.idUsuariosPop.splice(this.idUsuariosPop.indexOf(this.inUser));
-    console.log( changes);
-    
+    this.idUsuariosPop.splice(this.idUsuariosPop.indexOf(this.inUser));    
   }
 
 }

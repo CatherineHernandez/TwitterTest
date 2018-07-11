@@ -12,7 +12,6 @@ export class DetailGrupoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.grupoReceiveParent);
   }
 
 }

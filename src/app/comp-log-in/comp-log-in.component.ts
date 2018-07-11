@@ -17,7 +17,8 @@ export class CompLogInComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LogInService
+    private loginService: LogInService,
+    private route: Router
   ) {}
 
   ngOnInit() {
@@ -29,7 +30,29 @@ export class CompLogInComponent implements OnInit {
 
   onSubmit(){
     this.isValid = this.loginForm.valid;
-    this.loginService.LogIn(this.loginForm.value.username, this.loginForm.value.password)
-    .subscribe( result => SessionManager.store(result['_body']));
+    if(this.isValid){
+      this.loginService.LogIn(this.loginForm.value.username, this.loginForm.value.password)
+        .subscribe( result => this.ValidateLoginResponse(JSON.stringify(result)));
+    }
   }
+
+  ValidateLoginResponse(result: string){
+    let jsonResponse = JSON.parse(result);
+    console.log(jsonResponse);
+    let status: number = jsonResponse.status;
+    if(
+      status == 200
+    ){
+      SessionManager.store(jsonResponse._body);
+      this.route.navigate(['/UserDetail']);
+
+    }
+    else{
+
+    }
+
+    //
+    //console.log(SessionManager.getToken());
+  }
+
 }

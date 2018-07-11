@@ -1,7 +1,9 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ErrorHandler } from "@angular/core";
 import { Http } from "@angular/http";
 import { FakeTwitterClient } from "../Client/fake-twitter.client";
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+import { error } from "protractor";
+import { Observable, observable, of } from "rxjs";
 
 @Injectable()
 export class LogInService {
@@ -12,13 +14,17 @@ export class LogInService {
         params.set('username',username);
         params.set('password', password);
         params.set('grant_type', 'password');
-
+        console.log(String(params));
         let ObsevableAny = this._http.post(FakeTwitterClient.URL_LOGIN(), String(params),FakeTwitterClient.OPTIONS())
         .pipe(
             map(
-                (response:Response) => response
+                (response: Response) => response
+            ),
+            catchError(
+                (error: any) => of(error)
             )
         );
         return ObsevableAny;
     }
+
 }

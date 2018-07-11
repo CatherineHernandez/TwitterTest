@@ -20,6 +20,10 @@ import { GrupoService } from './grupos/grupos.service';
 import { NewGrupoComponent } from './grupos/new-grupo/new-grupo.component';
 import { ListGroupComponent } from './grupos/list-group/list-group.component';
 import { DetailGrupoComponent } from './grupos/detail-grupo/detail-grupo.component';
+import { LogInService } from './comp-log-in/log-in.service';
+import { HttpClientModule } from '@angular/common/http'; import { HttpModule } from '@angular/http';
+
+
 
 @NgModule({
   declarations: [
@@ -42,12 +46,15 @@ import { DetailGrupoComponent } from './grupos/detail-grupo/detail-grupo.compone
     ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [
     TweetService,
     UsuarioService,
-    GrupoService
+    GrupoService,
+    LogInService
   ],
   bootstrap: [AppComponent]
 })

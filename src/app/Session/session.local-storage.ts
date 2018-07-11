@@ -1,10 +1,14 @@
 export class SessionManager{
+    
 
     private static TOKEN_KEY: string = "towa.fake_tweeter.token"
 
-    public static store(content:Object){
-        console.log(content)
-        localStorage.setItem(this.TOKEN_KEY, JSON.stringify(content));
+    public static store(content:string){
+        let currentTime:number = (new Date()).getTime();
+        let jsonToken = JSON.parse(content);
+        jsonToken.expires_in = Number(jsonToken.expires_in) + currentTime;
+        console.log(jsonToken.expires_in);
+        localStorage.setItem(this.TOKEN_KEY, JSON.stringify(jsonToken));
     }
 
     private static retrieve(){
@@ -14,12 +18,17 @@ export class SessionManager{
         return storedToken;
     }
  
-    private static getToken(){
+    public static getToken(){
         let token: string;
         let currentTime:number = (new Date()).getTime();
         try {
-            let storedToken = JSON.parse(JSON.parse(this.retrieve()));
-
+            let storedToken = JSON.parse(this.retrieve());
+            console.log(currentTime);
+            if(
+                storedToken.expires_in < currentTime
+            ){
+                throw 'invalid token found';
+            }
             token = storedToken.access_token;
         }
         catch(err){

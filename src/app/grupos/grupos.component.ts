@@ -27,7 +27,6 @@ export class GruposComponent implements OnInit {
   }
 
   ReceiveGrupo($event) {
-    console.log("hola");
     this.receiveGrupo = $event;
   
   }

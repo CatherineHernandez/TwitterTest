@@ -1,6 +1,7 @@
 import { RequestOptions, Headers } from '@angular/http';
+
 export class FakeTwitterClient {
-    private static URL: string ="http://192.168.10.37/Fake%20Twitter/"
+    private static URL: string ="http://192.168.10.64/Fake%20Twitter/"
 
     private static OAUTH2 = "oauth2/token"
 
