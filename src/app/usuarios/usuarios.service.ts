@@ -16,11 +16,11 @@ export class UsuarioService{
 
       new Usuario (
         1,
-        'Caty',
+        'Cathy',
         '@caty',
         'caty@mail.com',
         '123',
-        'ImagePath'
+        'https://i2.wp.com/amyshojai.com/wp-content/uploads/2015/03/KittenFace_2186038_original.jpg?fit=3716%2C2477&ssl=1'
       )
      ];
 

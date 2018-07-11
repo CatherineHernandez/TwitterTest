@@ -1,3 +1,10 @@
-<p>
-  it Works!
-</p>
+<app-list-group 
+    (SelectedGrupo) = "ReceiveGrupo($event)"
+    data-toggle="modal"
+  data-target="#gruposModal">
+</app-list-group>
+<br>
+<br><br><br><br><br><br><br>
+<div class="modal fade" id="gruposModal" tabindex="-1" role="" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <app-detail-grupo [grupoReceiveParent]="receiveGrupo" *ngIf = "receiveGrupo"></app-detail-grupo>
+</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import {SessionManager } from '../Session/session.local-storage';
+import { LogInService } from './log-in.service';
 
 
 @Component({
@@ -14,7 +16,8 @@ export class CompLogInComponent implements OnInit {
 
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private loginService: LogInService
   ) {}
 
   ngOnInit() {
@@ -26,5 +29,7 @@ export class CompLogInComponent implements OnInit {
 
   onSubmit(){
     this.isValid = this.loginForm.valid;
+    this.loginService.LogIn(this.loginForm.value.username, this.loginForm.value.password)
+    .subscribe( result => SessionManager.store(result['_body']));
   }
 }

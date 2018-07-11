@@ -5,7 +5,15 @@
         <ul class="list-group" *ngFor = "let usuario of usuarios" >
             <li *ngIf="!idUsuariosPop.includes(usuario)"
                 class="list-group-item list-group-item-action d-flex justify-content-between align-items-center ">
-                {{ usuario.Name }}
+                    <div class="col-lg-4">
+                        <img src="{{ usuario.ImagePath }}"
+                        alt=""
+                        class="img-responsive"
+                        style="max-height: 30px; max-width: 30px;">
+                      </div> 
+                      <div class="col-lg-4">
+                          {{ usuario.Name }}
+                      </div> 
                 <span class="fa fa-user-plus btn btn-primary" (click)="onSelectedUsuario(usuario)" aria-hidden="true"></span>  
             </li>
         </ul>

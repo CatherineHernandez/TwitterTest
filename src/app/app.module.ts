@@ -19,6 +19,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { GrupoService } from './grupos/grupos.service';
 import { NewGrupoComponent } from './grupos/new-grupo/new-grupo.component';
 import { ListGroupComponent } from './grupos/list-group/list-group.component';
+import { DetailGrupoComponent } from './grupos/detail-grupo/detail-grupo.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ListGroupComponent } from './grupos/list-group/list-group.component';
     GruposComponent,
     UsuarioComponent,
     NewGrupoComponent,
-    ListGroupComponent
+    ListGroupComponent,
+    DetailGrupoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GrupoService } from '../grupos.service';
 import { Grupo } from '../grupos.model';
 
@@ -10,11 +10,17 @@ import { Grupo } from '../grupos.model';
 export class ListGroupComponent implements OnInit {
 
   grupos: Grupo[];
+  @Output() SelectedGrupo = new EventEmitter<Grupo>();
 
   constructor(private grupoService: GrupoService) { }
 
   ngOnInit() {
     this.grupoService.getGrupos().subscribe((grupoData) => this.grupos = grupoData);
+  }
+
+  onSelectedGrupo(grupo: Grupo){
+    //console.log(grupo);
+    this.SelectedGrupo.emit(grupo);
   }
 
 }

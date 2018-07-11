@@ -26,12 +26,19 @@
           </a>
         </div>
       <div class="modal-footer">
+          <div class="float-left">
+            {{ tweetReceiveParent.Date | date: 'medium' }}
+          </div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Like</button>
+        <div (click)="AddLike()">
+            <div *ngIf="Like; else NotLike">
+                <button type="button" style="color:red" class="btn btn-primary fa fa-heart" aria-hidden="true"></button>
+              </div>
+              <ng-template #NotLike>
+                  <button type="button" style="color:black" class="btn btn-primary fa fa-heart-o" aria-hidden="true"></button>
+              </ng-template>
+        </div>
         <button type="button" class="btn btn-primary">Reply</button>
       </div>
-    </div>
-    <div>
-      {{ tweetReceiveParent.Date | date: 'medium' }}
     </div>
   </div>

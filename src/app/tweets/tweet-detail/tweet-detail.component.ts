@@ -8,13 +8,16 @@ import {  Tweet } from '../tweet.module';
 })
 export class TweetDetailComponent implements OnInit {
   @Input() tweetReceiveParent: Tweet;
-
+  Like: boolean = false;
   constructor() { }
 
   ngOnInit() {
     console.log(this.tweetReceiveParent);
   }
 
-
+  AddLike() {
+    console.log(this.Like);
+    return this.Like = !this.Like;
+  }
 
 }

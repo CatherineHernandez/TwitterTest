@@ -13,6 +13,7 @@ import { GrupoService } from './grupos.service';
 export class GruposComponent implements OnInit {
  
   grupo = new Grupo("", []);
+  receiveGrupo: Grupo;
 
   constructor(  ) { }
 
@@ -25,4 +26,10 @@ export class GruposComponent implements OnInit {
     this.grupo.Usuarios.push($event);
   }
 
+  ReceiveGrupo($event) {
+    console.log("hola");
+    this.receiveGrupo = $event;
+  
+  }
+  
 }
