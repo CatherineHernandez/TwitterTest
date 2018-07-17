@@ -1,4 +1,5 @@
 import { RequestOptions, Headers } from '@angular/http';
+import { SessionManager } from '../Session/session.local-storage';
 
 export class FakeTwitterClient {
     private static URL: string ="http://192.168.10.64/Fake%20Twitter/"
@@ -9,12 +10,16 @@ export class FakeTwitterClient {
     private static RESOURCE_GROUPS = "api/groups"
     private static RESOURCE_TWEETS = "api/tweets"
 
-    private static headers: Headers = new Headers({
+    private static headersLogin: Headers = new Headers({
         'Accept': 'application/json',
         'Accept-Language': 'en-gb',
         'Audience': 'Any',
         'Content-Type': 'application/x-www-form-urlencoded',
         'Cache-Control': 'no-cache'
+    });
+
+    private static headers: Headers = new Headers({
+        'Autorization': 'Bearer  ' + SessionManager.getToken()
     });
     
     public static URL_LOGIN(){
@@ -33,7 +38,11 @@ export class FakeTwitterClient {
         return this.URL + this.RESOURCE_TWEETS;
     }
 
+    public static OPTIONS_LOGIN(){
+        return new RequestOptions({ headers: this.headersLogin });
+    }
+
     public static OPTIONS(){
-        return new RequestOptions({ headers: this.headers });
+        return new RequestOptions({headers: this.headers});
     }
 }

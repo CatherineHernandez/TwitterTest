@@ -6,15 +6,13 @@ export class SessionManager{
     public static store(content:string){
         let currentTime:number = (new Date()).getTime();
         let jsonToken = JSON.parse(content);
-        jsonToken.expires_in = Number(jsonToken.expires_in) + currentTime;
-        console.log(jsonToken.expires_in);
+        jsonToken.expires_in = Number(jsonToken.expires_in) * 1000 + currentTime;
         localStorage.setItem(this.TOKEN_KEY, JSON.stringify(jsonToken));
     }
 
     private static retrieve(){
         let storedToken:string = localStorage.getItem(this.TOKEN_KEY);
         if(!storedToken) throw 'no token found';
-
         return storedToken;
     }
  
@@ -23,7 +21,6 @@ export class SessionManager{
         let currentTime:number = (new Date()).getTime();
         try {
             let storedToken = JSON.parse(this.retrieve());
-            console.log(currentTime);
             if(
                 storedToken.expires_in < currentTime
             ){

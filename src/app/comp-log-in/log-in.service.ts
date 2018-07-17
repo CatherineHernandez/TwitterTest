@@ -15,7 +15,7 @@ export class LogInService {
         params.set('password', password);
         params.set('grant_type', 'password');
         console.log(String(params));
-        let ObsevableAny = this._http.post(FakeTwitterClient.URL_LOGIN(), String(params),FakeTwitterClient.OPTIONS())
+        let ObsevableAny = this._http.post(FakeTwitterClient.URL_LOGIN(), String(params),FakeTwitterClient.OPTIONS_LOGIN())
         .pipe(
             map(
                 (response: Response) => response

@@ -44,6 +44,7 @@ export class CompLogInComponent implements OnInit {
       status == 200
     ){
       SessionManager.store(jsonResponse._body);
+      console.log(SessionManager.getToken());
       this.route.navigate(['/UserDetail']);
 
     }

@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
 export class UsuarioDetailComponent implements OnInit {
 
   usuario: Usuario;
-  usuarioService: UsuarioService = new UsuarioService();
-
-  constructor( private route: Router ) { }
+  constructor( private route: Router, 
+          private usuarioService: UsuarioService
+  ) { }
 
   ngOnInit() {
     this.usuario =this.usuarioService.getUser(0);
